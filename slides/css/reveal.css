@@ -1385,3 +1385,10 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+/**********************************************
+* OTHERS
+**********************************************/
+.hidden-slide {
+  display: none !important;
+}

@@ -37,9 +37,13 @@
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong>ABOUT ME</strong></h5>
 					<section data-transition="none">
-						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
+						<img src="images/00_aboutme.jpg" style='float: top; border:0; box-shadow: none' height=550/>
 						<aside class="notes">
-							I am Vinh Tran
+							1) blabalbla<br><br>
+							2) blablabla<br><br>
+							3) Dynamic evolution (gene set reduction or expansion)<br><br>
+							4) After my PhD, I stayed in the group and was involved in several projects<br>
+							developing algorithm and tools for comparative genomics analyses
 						</aside>
 					</section>
 				</section>
@@ -48,13 +52,27 @@
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong>KEYWORDS</strong></h5>
 					<section data-transition="none">
+						<img src="images/013_comparative_genomics.png" style='float: top; border:0; box-shadow: none' height=500/>
+						<aside class="notes">
+							Comparative genomics is a field of biological research in which<br>
+							one compares the genomic sequences and characteristics of multiple organisms<br>
+							in order to find out the similarity and difference between them.
+						</aside>
+					</section>
+					<section data-transition="none">
 						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
 						<aside class="notes">
 							These are the keywords in this presentation.
 							I hope that you are already familiar with them, at least from some of the previous presentations.<br><br>
+							Contaimination is what should not be in the assembly, such as bird genes in fist assembly
+						</aside>
+					</section>
+					<section data-transition="none">
+						<p>Homologs = Orthologs ∪ Paralogs</p>
+						<img src="images/012_homology.png" style='float: top; border:0; box-shadow: none' height=300/>
+						<aside class="notes">
 							Homologous genes = genes that share a common ancestor<br>
 							Result of duplication event => paralogs, speciation event => orthologs
-							Contaimination is what should not be in the assembly, such as bird genes in fist assembly
 						</aside>
 					</section>
 				</section>
@@ -64,13 +82,13 @@
 					<h5 style="color: white; background-color: #559951"><strong>QUESTION</strong></h5>
 					<section data-transition="none">
 						<br>
-						<img src="images/021_newspecies.png" style='float: top; border:0; box-shadow: none' height=400/>
-						<p>Does the new fish have the Sprecher pathway<br>(for biosynthesizing of DHA)?</p>
+						<img src="images/021_newspecies.png" style='float: top; border:0; box-shadow: none' height=440/>
+						<p>What genetic mechanisms underlie this fish’s<br>unique phenotype compared to related species?</p>
 						<aside class="notes">
-							I start with a scientific question.<br>
-							After we discovered a new species, normally we will ask: can it do this or that function?<br>
-							Docosahexaenoic acid (DHA) plays important physiological roles in vertebrates.
-							Studies in rats and rainbow trout (Regenbogenforelle) confirmed that DHA biosynthesis proceeds through the so-called “Sprecher pathway”,
+							In comparative genomics, we are interested in finding the differences between species.<br>
+							For example, here we found a fish that can only lives in water. We will ask ourselves,<br>
+							which genes, genetic variants, or regulatory elements are responsible for this unique phenotype<br>
+							when we compare this fish with its closely related species.
 						</aside>
 					</section>
 				</section>
@@ -118,13 +136,13 @@
 							And from this step come our BIONF tools into the game
 						</aside>
 					</section>
-					<section data-transition="none">
+					<section data-visibility="hidden">
 						<br>
 						<img src="images/041_data.jpg" style='float: top; border:0; box-shadow: none' height=200/>
 						<p>
 							Is my genome "clean"?
-							<li style="font-size:20px; text-align:center">Contamination</li>
-							<li style="font-size:20px; text-align:center">Horizontal gene transfer</li>
+							<p style="font-size:30px; text-align:center">Contamination</p>
+							<p style="font-size:30px; text-align:center">Horizontal gene transfer</p>
 						</p>
 						<img src="images/043_taxaminer.jpg" style='float: top; border:0; box-shadow: none' height=150/>
 						<aside class="notes">
@@ -132,32 +150,22 @@
 							Because contaimination can lead to a wrong intepretation. Such as:<br>
 							Having chicken gene in the fish assembly doesn't automatically mean that our fish has something to do with chicken<br>
 							It could just be a side effect of someone eating KFC while doing the sequencing...<br>
-							To find out such contamination genes, we can use taXaminer, a tool has been developed by Freya
+							To find out such contamination genes, one of my colleague, Freya, has developed a tool called taXaminer<br><br>
 						</aside>
 					</section>
 					<section data-transition="none">
 						<br>
 						<img src="images/044_taxaminer_workflow.png" style='float: top; border:0; box-shadow: none' height=300/>
-						<p style="font-size:10px; text-align:right"><em>Freya Arthen (2022), Master thesis</em></p>
+						<p style="font-size:12px; text-align:right"><em>Freya Arthen (2022), Master thesis</em></p>
 						<p><a href="https://github.com/BIONF/taXaminer" target="_blank">https://github.com/BIONF/taXaminer</a></p>
 						<aside class="notes">
-							Since Freya has already introduced this tool in her last group seminar, I just make a quick summary<br>
 							taXaminer will have the assembly data as the main input and take into account many characters to cluster the similar genes together,
 							such as the read coverage, the GC content, the gene length, the gene position on the contigs, etc.<br>
 							It uses the Principal component analysis (PCA) to reduce the dimention of those characters into 2 or 3 dimentions
-							in order to be easy to show and intepret with 2D or 3D plot
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/045_taxaminer_example.png" style='float: top; border:0; box-shadow: none' height=550/>
-						<p style="font-size:10px; text-align:right"><em>Freya Arthen (2022), Master thesis</em></p>
-						<aside class="notes">
-							Then, from the cluster result of taXaminer, we can then inspect the taxonomic assignment of each gene and classify them as contamination or native genes<br>
+							in order to be easy to show and intepret with 2D or 3D plot<br><br>
 							For example here in this small cloud, we see many Ascomycota hits.
 							They are all belong to short scaffolds and have low read coverage in compare to the others.
-							Therefore, one could consider them as candidates for contamination.<br>
-							Of cause, further validation still need to be done...
+							Therefore, one could consider them as candidates for contamination.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -176,6 +184,8 @@
 					<section data-transition="none">
 						<br>
 						<img src="images/047_fcat_workflow.png" style='float: top; border:0; box-shadow: none' height=400/>
+						<p style="font-size:12px; text-align:right"><em>Tran & Ebersberger (2022),
+							<a href="https://doi.org/10.7490/f1000research.1119126.1" target="_blank">https://doi.org/10.7490/f1000research.1119126.1</a></em></p>
 						<p><a href="https://github.com/BIONF/fCAT" target="_blank">https://github.com/BIONF/fCAT</a></p>
 						<aside class="notes">
 							The starting point of fCAT is the core set for each taxonomic clade
@@ -189,7 +199,7 @@
 					</section>
 					<section data-transition="none">
 						<br>
-						<img src="images/048_fcat_example.png" style='float: top; border:0; box-shadow: none' height=400/>
+						<img src="images/048_fcat_example.png" style='float: top; border:0; box-shadow: none' height=600/>
 						<aside class="notes">
 							Different than BUSCO, which can only assign a gene as complete or fragmented, fCAT delivers more information<br>
 							Such as in this example, we found an "fragmented" ortholog in the species of interest, the Trachinus draco species.
@@ -208,8 +218,8 @@
 						<img src="images/051_paper.png" style='float: left; border:0; box-shadow: none' height=200/>
 						<img src="images/052_paper.png" style='float: right; border:0; box-shadow: none' height=200/>
 						<aside class="notes">
-							After verify the quality of the assembly and the annotated gene set, we come back to our original question
-							to study about the specific function of our species.<br>
+							After validating the genome assembly and annotation, we address our original question<br>
+							by examining a key functional trait: the ability to synthesize DHA.<br>
 							For that, we search through literatures for the same study in other organisms to get the reference data
 						</aside>
 					</section>
@@ -217,9 +227,10 @@
 						<br>
 						<img src="images/053_fads_protein.jpg" style='float: top; border:0; box-shadow: none' height=100/>
 						<p>Feature-aware directed (targeted) ortholog search</p>
+						<img src="images/053b_fdog_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/053_fdog_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
 						<aside class="notes">
-							For example, in the case of DHA biosynthesis pathway, the main enzymes are the FADs and ELOVL proteins.<br>
+							Here, the main enzymes that involved in the DHA biosynthesis pathway are the FADs and ELOVL proteins.<br>
 							The straighforward approach here is searching for these genes in our species.
 							For that, we use the targeted ortholog search tool fDOG.<br>
 							<br>FAD: Flavin adenine dinucleotide => enzyme for fatty acid desaturation (remove 2 Hydrogen atoms to create carbon/carbon double bond)
@@ -228,10 +239,11 @@
 					</section>
 					<section data-transition="none">
 						<br>
-						<img src="images/054_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=500/>
+						<img src="images/054_fdog_workflow.jpg" style='float: top; border:0; box-shadow: none' height=470/>
+						<p style="font-size:12px; text-align:right"><em>Tran et al. (2025),
+							<a href="https://doi.org/10.1093/molbev/msaf120" target="_blank">https://doi.org/10.1093/molbev/msaf120</></em></p>
 						<p><a href="https://github.com/BIONF/fDOG" target="_blank">https://github.com/BIONF/fDOG</a></p>
 						<aside class="notes">
-							I hope that you still remember the workflow of fDOG from my last group seminar.<br>
 							Starting with a seed protein (the FAD or ELOVL from the previous slide),
 							fDOG iteratively search for orthologs in a set of so-called core taxa. After each round,
 							new ortholog will be added to the core ortholog group to create a profile HMM for the core group.
@@ -242,10 +254,16 @@
 							Finally, fDOG create a phylogenetic profiles for the seed protein with the founded orthologs in different taxa
 						</aside>
 					</section>
+				</section>
+
+				<!-- SLIDE 6 Phylogenetic profile analysis -->
+				<section>
+					<h5 style="color: white; background-color: #559951"><strong>Phylogenetic profile analysis</strong></h5>
 					<section data-transition="none">
 						<br>
-						<img src="images/055_pp_simple.png" style='float: top; border:0; box-shadow: none' height=300/>
 						<p>Phylogenetic profile</p>
+						<img src="images/060_pp_simple.png" style='float: top; border:0; box-shadow: none' height=300/>
+						<p style="font-size:30px">Presence of orthologs ⇒ likely presence of the function</p>
 						<aside class="notes">
 							The main purpose of the phylogenetic profiles from fDOG is not different than showing the presence/absence pattern of the seed proteins in a list of diverse species<br>
 							The only different from the original phylogenetic profiles is,
@@ -254,17 +272,29 @@
 							To visualize and explore such complex phylogenetic profiles, an excel table is not always useful
 						</aside>
 					</section>
-				</section>
-
-				<!-- SLIDE 6 Phylogenetic profile analysis -->
-				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Phylogenetic profile analysis</strong></h5>
+					<section data-transition="none">
+						<br>
+						<p>Phylogenetic profile</p>
+						<img src="images/060b_pp_simple2.png" style='float: top; border:0; box-shadow: none' height=300/>
+						<p style="font-size:30px">Similar profiles ⇒ functional association</p>
+						<aside class="notes">
+							The main purpose of the phylogenetic profiles from fDOG is not different than showing the presence/absence pattern of the seed proteins in a list of diverse species<br>
+							The only different from the original phylogenetic profiles is,
+							that the one from fDOG is not binary but it contains also other measures,
+							namely the domain architecture similarity between the seed and the orthologs.<br>
+							To visualize and explore such complex phylogenetic profiles, an excel table is not always useful
+						</aside>
+					</section>
 					<section data-transition="none">
 						<br>
 						<p>Visualization and exploration of phylogenetic profiles</p>
+						<br>
+						<img src="images/061b_phyloprofile_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/061_phyloprofile_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
-						<p style="font-size:10px; text-align:right"><em>Tran et al. (2018), Bioinformatics</em><br>
-						<a href="https://doi.org/10.1093/bioinformatics/bty225" target="_blank">https://doi.org/10.1093/bioinformatics/bty225</a></p>
+						<p style="font-size:12px; text-align:right"><em>Tran et al. (2018),
+							<a href="https://doi.org/10.1093/bioinformatics/bty225" target="_blank">https://doi.org/10.1093/bioinformatics/bty225</a></em><br>
+						<p style="font-size:12px; text-align:right"><em>Tran & Ebersberger (2025),
+							<a href="https://doi.org/10.48550/arXiv.2504.19710" target="_blank">https://doi.org/10.48550/arXiv.2504.19710</a></em><br>
 						<aside class="notes">
 							....<br>
 							Therefore we have developed this PhyloProfile tool
@@ -309,8 +339,8 @@
 					<h5 style="color: white; background-color: #559951"><strong>Protein feature comparison</strong></h5>
 					<section data-transition="none">
 						<br>
-						<img src="images/071_profile.png" style='float: top; border:0; box-shadow: none' height=300/>
-						<p>Feature architecture similarity (FAS) score</p>
+						<p>Feature architecture similarity (FAS)</p>
+						<img src="images/072b_FAS_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/072_julian.jpg" style='float: top; border:0; box-shadow: none' height=180/>
 						<aside class="notes">
 							To sytematically compare the protein architectures by not just looking at the domain plot,
@@ -321,6 +351,8 @@
 					<section data-transition="none">
 						<br>
 						<img src="images/073_FAS.png" style='float: top; border:0; box-shadow: none' height=200/>
+						<p style="font-size:12px; text-align:right"><em>Dosch et al. (2018),
+							<a href="https://doi.org/10.1093/bioinformatics/btad226" target="_blank">https://doi.org/10.1093/bioinformatics/btad226</a></em><br>
 						<p><a href="https://github.com/BIONF/FAS" target="_blank">https://github.com/BIONF/FAS</a></p>
 						<aside class="notes">
 							FAS score has a value between 1 and 0; 1: completely similar; 0: completely different or no annotated domain found.<br>
