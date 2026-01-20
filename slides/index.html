@@ -7,7 +7,7 @@
 		<title>BIONF tools presentation</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css" id=theme>
+		<link rel="stylesheet" href="css/theme/simple.css" id=theme>
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -37,7 +37,7 @@
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong>ABOUT ME</strong></h5>
 					<section data-transition="none">
-						<img src="images/00_aboutme.jpg" style='float: top; border:0; box-shadow: none' height=550/>
+						<img src="images/00_aboutme.jpg" style='float: top; border:0; box-shadow: none' height=590/>
 						<aside class="notes">
 							1) blabalbla<br><br>
 							2) blablabla<br><br>
@@ -60,19 +60,19 @@
 						</aside>
 					</section>
 					<section data-transition="none">
-						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
-						<aside class="notes">
-							These are the keywords in this presentation.
-							I hope that you are already familiar with them, at least from some of the previous presentations.<br><br>
-							Contaimination is what should not be in the assembly, such as bird genes in fist assembly
-						</aside>
-					</section>
-					<section data-transition="none">
 						<p>Homologs = Orthologs ∪ Paralogs</p>
 						<img src="images/012_homology.png" style='float: top; border:0; box-shadow: none' height=300/>
 						<aside class="notes">
 							Homologous genes = genes that share a common ancestor<br>
 							Result of duplication event => paralogs, speciation event => orthologs
+						</aside>
+					</section>
+					<section data-transition="none">
+						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
+						<aside class="notes">
+							These are some other keywords in this presentation.
+							I hope that you are already familiar with them.
+							Contaimination is what should not be in the assembly, such as bird genes in fish's assembly
 						</aside>
 					</section>
 				</section>
@@ -364,9 +364,9 @@
 					</section>
 				</section>
 
-				<!-- SLIDE 8 MATT -->
+				<!-- SLIDE 8 EXAMPLES -->
 				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Phylogenetic tree testing</strong></h5>
+					<h5 style="color: white; background-color: #559951"><strong>Use cases</strong></h5>
 					<section data-transition="none">
 						<br>
 						<img src="images/081_tree_hypotheses.jpg" style='float: top; border:0; box-shadow: none' height=300/>
@@ -396,104 +396,6 @@
 							Our null-hypothesis is the alternative topology is significantly different then the original topology (with 95% confidence).
 							If the test rejected the alternative (modified) tree, we will see a minus sign here (p-value less than 5%)
 							(i.e. the modified tree is significantly different than the original one)
-						</aside>
-					</section>
-				</section>
-
-				<!-- SLIDE 9 gnom -->
-				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Data management</strong></h5>
-					<section data-transition="none">
-						<br>
-						<img src="images/091_dashboard.png" style='float: top; border:0; box-shadow: none' height=200/>
-						<p>Central data management: G-NOM</p>
-						<img src="images/092_andreas.jpg" style='float: top; border:0; box-shadow: none' height=150/>
-						<p><a href="http://g-nom.izn-ffm.intern:5000/g-nom" target="_blank">http://g-nom.izn-ffm.intern:5000/g-nom</a></p>
-						<aside class="notes">
-							Now, after having a bunch of raw data and analysis outputs,
-							we need to have an effective way to organize and represent our data.<br>
-							Andreas, within the scope of his master thesis, has developed G-NOM,
-							a central data management system for storing data of many thousand assemblies
-							(at least it is the aim of G-NOM :D)
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/093_gnom1.png" style='float: top; border:0; box-shadow: none' height=500/>
-						<p>Assembly information</p>
-						<aside class="notes">
-							For each assembly, G-NOM contains the information about the assembly itself,
-							such as the number of scaffolds, the assembly and scaffold length, the GC content,...
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/094_gnom2.png" style='float: top; border:0; box-shadow: none' height=500/>
-						<p>taXaminer analysis</p>
-						<aside class="notes">
-							It also can show the result of the quality control with taXaminer,
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/095_gnom3.png" style='float: top; border:0; box-shadow: none' height=500/>
-						<p>Gene set completeness</p>
-						<aside class="notes">
-							or the gene completeness with BUSCO and fCAT
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/096_gnom4.png" style='float: top; border:0; box-shadow: none' height=250/>
-						<p>Genome browser</p>
-						<aside class="notes">
-							Another cool feature of G-NOM is the integrated genome browser.
-							With that we can easily inspect a gene within its genomic location,
-							like the gene neighborhood, the read coverage, also may be the correctness of the gene annotation<br>
-						</aside>
-					</section>
-				</section>
-
-				<!-- SLIDE 10 OTHERS -->
-				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Other tools</strong></h5>
-					<section data-transition="none">
-						<br>
-						<p>
-							<li style="font-size:20px; text-align:left">fDOG assembly</li>
-							<img src="images/101_hannah.jpg" style='float: top; border:0; box-shadow: none' height=150/>
-							<li style="font-size:20px; text-align:left">dcc2 (Dynamic core orthologs compilation)</li>
-							<img src="images/102_dcc2.jpg" style='float: top; border:0; box-shadow: none' height=150/>
-							<li style="font-size:20px; text-align:left">protTrace (Protein traceability estimation)</li>
-							<img src="images/103_prottrace.png" style='float: top; border:0; box-shadow: none' height=100/>
-						</p>
-						<aside class="notes">
-							We still have many other tools in the BIONF universe. Such as
-							the fDOG assembly of Hannah, which is similar to fDOG but can work also directly with the assembly data instead of the annotated gene sets<br>
-							We have dcc2, a tool for compiling of core ortholog groups and other required data for fdog and fcat<br>
-							We have protTrace, a tool for estimating the traceeability of a protein to see
-							if an ortholog is missing in the phylogentic profile plot was really a missing gene,
-							or just because the sensitivity of the search algorithm
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<p>
-							<li style="font-size:20px; text-align:left">ncOrtho (Targeted ortholog search for miRNAs)</li>
-							<img src="images/105_ncortho.png" style='float: top; border:0; box-shadow: none' height=200/>
-							<img src="images/104_felix.jpg" style='float: top; border:0; box-shadow: none' height=100/>
-							<li style="font-size:20px; text-align:left">Vicinator (Microsynteny gene cluster visualization)</li>
-							<img src="images/107_vicinator.png" style='float: top; border:0; box-shadow: none' height=200/>
-							<img src="images/106_bardya.jpg" style='float: top; border:0; box-shadow: none' height=100/>
-							<li style="font-size:20px; text-align:left">ClAssT, AspecT (Dominik Sens), etc.</li>
-						</p>
-						<aside class="notes">
-							If you are not interested in working with protein or gene sets,
-							but in the prediction of the non-coding RNA, especially microRNA,
-							you can try ncOrtho, which was currently developed by Felix.<br>
-							Or, if you want to visualize the phylogenetic profiles of a cluster of genes
-							in the correct gene orders, Bardya has the tool Vicinator build exactly for that purpose<br>
-							There are still some other tools in developing, like ClAssT & AspecT, etc.
 						</aside>
 					</section>
 				</section>
