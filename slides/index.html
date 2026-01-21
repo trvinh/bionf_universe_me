@@ -54,8 +54,8 @@
 					<section data-transition="none">
 						<img src="images/013_comparative_genomics.png" style='float: top; border:0; box-shadow: none' height=500/>
 						<aside class="notes">
-							Comparative genomics is a field of biological research in which<br>
-							one compares the genomic sequences and characteristics of multiple organisms<br>
+							Comparative genomics is a field of biological research in which
+							one compares the genomic sequences and characteristics of multiple organisms
 							in order to find out the similarity and difference between them.
 						</aside>
 					</section>
@@ -64,15 +64,16 @@
 						<img src="images/012_homology.png" style='float: top; border:0; box-shadow: none' height=300/>
 						<aside class="notes">
 							Homologous genes = genes that share a common ancestor<br>
-							Result of duplication event => paralogs, speciation event => orthologs
+							Orthologs arise from a common ancester gene after a speciation event,
+							leading to similar genes (hence potentially conserved function)<br>
+							While, the result of a duplication event are paralogs that can evolve
+							new functions
 						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
 						<aside class="notes">
-							These are some other keywords in this presentation.
-							I hope that you are already familiar with them.
-							Contaimination is what should not be in the assembly, such as bird genes in fish's assembly
+							These are some other keywords, for which I will explain during my presentation
 						</aside>
 					</section>
 				</section>
@@ -85,10 +86,11 @@
 						<img src="images/021_newspecies.png" style='float: top; border:0; box-shadow: none' height=440/>
 						<p>What genetic mechanisms underlie this fish’s<br>unique phenotype compared to related species?</p>
 						<aside class="notes">
-							In comparative genomics, we are interested in finding the differences between species.<br>
-							For example, here we found a fish that can only lives in water. We will ask ourselves,<br>
-							which genes, genetic variants, or regulatory elements are responsible for this unique phenotype<br>
-							when we compare this fish with its closely related species.
+							Let start with a scientific question. So, we observed something interest about an organism,
+							so we ask ourselve, what make this organism different than the others (closely related species)?
+							Which genetic mechanisms give this species such a unique phenotype?
+							More precise, which regulatory changes contribute to this observation,
+							or, which genes or proteins are responsible for this phenotype, etc.
 						</aside>
 					</section>
 				</section>
@@ -100,7 +102,13 @@
 						<br>
 						<img src="images/031_sequencing.gif" style='float: top; border:0; box-shadow: none' height=400/>
 						<aside class="notes">
-							Then, what will we do first? Just get an sample of that species and perform the sequencing
+							The next step we should do is to take a sample of the organism and do the sequencing.
+							Why:
+							- With the current technique, it is the cheapest (maximal info per dolar) and quickest way to have
+							an overview of the novelty of the organism such as: identify gene gain/loss,
+							gene family expansion, unique or fast-evolving genes, compare regulatory regions,
+							infer metabolic pathways, so on and so forth<br>
+							- And therefore we can better formulate our hypothesis for the downstream analyses
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -314,12 +322,17 @@
 							last common ancestor approach; or identify group of core genes that can be used fo a species tree reconstruction
 						</aside>
 					</section>
+				</section>
+
+				<!-- SLIDE 7 FAS -->
+				<section>
+					<h5 style="color: white; background-color: #559951"><strong>Protein feature comparison</strong></h5>
 					<section data-transition="none">
 						<br>
 						<img src="images/063_domain_comparison.png" style='float: top; border:0; box-shadow: none' height=400/>
-						<p>Domain (feature) architecture comparison</p>
+						<p>Protein feature architecture comparison</p>
 						<aside class="notes">
-							However, the most relevant feature is still the comparison of the protein domain architecture.<br>
+							The most relevant feature is the comparison of the protein domain architecture.<br>
 							With this, we can easily find genes that have changes in their architectures, which suggest also for
 							functional changes. Or, we can figure out, if the difference in the domain architecture is just
 							a technical artifact due to wrong gene prediction.<br>
@@ -332,11 +345,6 @@
 							Which is quite hard to believe)</em>
 						</aside>
 					</section>
-				</section>
-
-				<!-- SLIDE 7 FAS -->
-				<section>
-					<h5 style="color: white; background-color: #559951"><strong>Protein feature comparison</strong></h5>
 					<section data-transition="none">
 						<br>
 						<p>Feature architecture similarity (FAS)</p>
@@ -369,38 +377,55 @@
 					<h5 style="color: white; background-color: #559951"><strong>Use cases</strong></h5>
 					<section data-transition="none">
 						<br>
-						<img src="images/081_tree_hypotheses.jpg" style='float: top; border:0; box-shadow: none' height=300/>
-						<p>Modifying and testing tree topologies</p>
-						<img src="images/082_matt_logo.png" style='float: top; border:0; box-shadow: none' height=150/>
-						<img src="images/083_jeff.jpg" style='float: top; border:0; box-shadow: none' height=150/>
+						<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+					    <img src="images/085_example1a.png"
+					         style="border:0; box-shadow:none;"
+					         height="200">
+					    <img src="images/085_example1.png"
+					         style="border:0; box-shadow:none;"
+					         height="320">
+					  </div>
+						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 1, Moretti et al. (2017),
+							<a href="https://doi.org/10.1038/s41598-017-16947-5" target="_blank">https://doi.org/10.1038/s41598-017-16947-5</a></em><br>
 						<aside class="notes">
-							After studying a specific function of the species. Now we are interested in the taxonomy of our new fish,
-							or in a simple words, what kind of fish is my new fish?<br>
-							To answer this question, we take fdog to search for orthologs in our fish and other close and distantly relative taxa
-							=> then identify the core genes using PhyloProfile => and reconstruct the phylogenetic tree for our species using i.e. iqTree.<br>
-							Then, if the topology of the tree is not what we expected, we need to perform some topology test.<br>
-							For this purpose, Jeff has created a tool called MATT, which can be use to modify the topology
-							of a given tree and run the topology test on the modified tree to check for different tree topology hypotheses
+							...
 						</aside>
 					</section>
 					<section data-transition="none">
 						<br>
-						<img src="images/084_matt_example.png" style='float: top; border:0; box-shadow: none' height=500/>
-						<p><a href="https://github.com/BIONF/MATT" target="_blank">https://github.com/BIONF/MATT</a></p>
+						<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+					    <img src="images/086_example2a.png"
+					         style="border:0; box-shadow:none;"
+					         height="200">
+					    <img src="images/086_example2.png"
+					         style="border:0; box-shadow:none;"
+					         height="450">
+					  </div>
+						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 8, Birikmen et al. (2021),
+							<a href="https://doi.org/10.3389/fmicb.2021.739000" target="_blank">https://doi.org/10.3389/fmicb.2021.739000</a></em><br>
 						<aside class="notes">
-							Here is an example of MATT. After uploading the alignment and the reconstructed tree into MATT, we can
-							move some clades to the new positions to fit our hypothesis, and perform the topology tests.<br>
-							Here IQtree was used for the testing. Different approaches have been applied,
-							including Kishino & Hasegawa test (HS), Shimodaira & Hasegawa test (SH) or AU (Approximately unbiased) test.<br>
-							We have here the initial topology and the modified topology.
-							Our null-hypothesis is the alternative topology is significantly different then the original topology (with 95% confidence).
-							If the test rejected the alternative (modified) tree, we will see a minus sign here (p-value less than 5%)
-							(i.e. the modified tree is significantly different than the original one)
+							...
+						</aside>
+					</section>
+					<section data-transition="none">
+						<br>
+						<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+					    <img src="images/087_example3a.png"
+					         style="border:0; box-shadow:none;"
+					         height="150">
+					    <img src="images/087_example3.png"
+					         style="border:0; box-shadow:none;"
+					         height="350">
+					  </div>
+						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 4, Tran et al. (2025),
+							<a href="https://doi.org/10.1093/molbev/msaf120" target="_blank">https://doi.org/10.1093/molbev/msaf120</a></em><br>
+						<aside class="notes">
+							...
 						</aside>
 					</section>
 				</section>
 
-				<!-- SLIDE 11 Summary -->
+				<!-- SLIDE 9 Summary -->
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong>Summary</strong></h5>
 					<section data-transition="none">
@@ -410,12 +435,11 @@
 							As a summary, here I show you the relationship between our tools.<br>
 							The grey arrows shows the input and output flow between the tools;
 							the blue arrows shows the integration of one tool in the others.<br>
-							As we can see here, most of the tools are written in Python and are available
-							as python packages, which means one can install them using pip command.<br>
+							Most of the tools are written in Python and are available as python packages.<br>
 							For the graphical user interface tools, we have different approaches,
-							from JavaScript for MATT, to React for G-NOM and R-Shiny for PhyloProfile.<br>
+							from JavaScript for MATT or R-Shiny for PhyloProfile.<br>
 							Beside the ability to install the tools from PyPi or Bioconductor,
-							you can get the source code of those tools (except G-NOM) on the BIONF github repository
+							you can get the source code of those tools on the BIONF github repository
 						</aside>
 					</section>
 				</section>
@@ -427,7 +451,7 @@
 						<img src="images/121_thanks.jpeg" style='float: top; border:0; box-shadow: none' height="250"/>
 						<br>
 						<p style="font-size:15px; text-align:center"><em>Presentation link</em><br>
-						<a href="https://trvinh.github.io/bionf-universe-slides/slides/#/" target="_blank">https://trvinh.github.io/bionf-universe-slides/slides/#/</a></p>
+						<a href="https://trvinh.github.io/bionf_universe_me/slides/#/" target="_blank">https://trvinh.github.io/bionf_universe_me/slides/#/</a></p>
 						<img src="images/122_qrcode.png" style='float: top; border:0; box-shadow: none' height="100"/>
 					</section>
 				</section>
