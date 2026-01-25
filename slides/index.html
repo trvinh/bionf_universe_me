@@ -113,11 +113,9 @@
 						<img src="images/021_newspecies.png" style='float: top; border:0; box-shadow: none' height=440/>
 						<p>What genetic mechanisms underlie this fish’s<br>unique phenotype compared to related species?</p>
 						<aside class="notes">
-							Let start with a scientific question. So, we observed something interest about an organism,
-							so we ask ourselve, what make this organism different than the others (closely related species)?
-							Which genetic mechanisms give this species such a unique phenotype?
-							More precise, which regulatory changes contribute to this observation,
-							or, which genes or proteins are responsible for this phenotype, etc.
+							Let’s start with a scientific question. When we observe an interesting phenotype,
+							we ask what makes this organism different from its close relatives, and which genes,
+							proteins, or regulatory changes are responsible.
 						</aside>
 					</section>
 				</section>
@@ -166,7 +164,7 @@
 						<img src="images/041_data.jpg" style='float: top; border:0; box-shadow: none' height=200/>
 						<img src="images/042_quality.jpg" style='float: top; border:0; box-shadow: none' height=300/>
 						<aside class="notes">
-							Therefore, the first step before doing any further studies is to check for the quality of our assembly and gene annotation<br>
+							Therefore, before doing any further studies we need to check for the quality of our assembly and gene annotation<br>
 							There are some basic metrics for evaluating the quality of an assembly, such as N50 length, the genome coverage, BUSCO completeness, etc.<br>
 							And from this step come our BIONF tools into the game.
 							(N50: minimum contig length required to cover 50 percent of the assembled genome sequence => Assembly Contiguity<br>
@@ -184,10 +182,10 @@
 						</p>
 						<img src="images/043_taxaminer.jpg" style='float: top; border:0; box-shadow: none' height=150/>
 						<aside class="notes">
-							Once we have a genome assembly, one important question is whether it is clean. Some sequences may come from
+							One of the questions we can ask is whether out assembly is clean. Some sequences may come from
 							contamination—DNA from other organisms that accidentally got into the sample—while others may result from
-							horizontal gene transfer, meaning genes that truly became part of the genome. Both types of these foreign sequences
-							can confuse our interpretation.
+							horizontal gene transfer, meaning genes from other organisms that truly became part of the genome. 
+							Both types of these foreign sequences can confuse our interpretation.
 							For example, finding a chicken gene in a fish genome does not mean fish are related to chickens; it could simply
 							be contamination because the TA was eating chicken while doing the sequencing...<br>
 							To find out such contamination genes, one of my colleague, Freya, has developed a tool called taXaminer<br><br>
@@ -244,6 +242,8 @@
 							the predicted genes in two ways: by sequence length, to determine whether they are complete or fragmented,
 							and by protein domain architecture, to assess whether they are structurally and functionally similar.<br>
 							The length-based evaluation is similar to BUSCO, while the domain-based analysis is the key novel feature of fCAT.
+							What is the domain or feature architecture of a protein? => functional or structural subsequences that you can
+							annotate along the protein sequence.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -251,7 +251,7 @@
 						<img src="images/048_fcat_example.png" style='float: top; border:0; box-shadow: none' height=600/>
 						<aside class="notes">
 							By comparing protein domain architectures, we can gain deeper insight into the quality of a genome annotation.
-							Here, I show two examples from the gene set of this fish.<br>
+							Here, I show two examples from fCAT analysis of this fish gene set.<br>
 							In the example on the left, we identified an ortholog that was classified as fragmented. When we compared it
 							to orthologs from other species, we observed that it lacks the BTB and BACK domains at the N-terminus.
 							By inspecting the genome assembly, we found a gene located directly upstream that contains exactly these
@@ -273,10 +273,8 @@
 						<img src="images/051_paper.png" style='float: left; border:0; box-shadow: none' height=200/>
 						<img src="images/052_paper.png" style='float: right; border:0; box-shadow: none' height=200/>
 						<aside class="notes">
-							After validating the genome assembly and annotation, we can study about the characteristics
-							of our species. In this example, we check for the ability to synthesize DHA of our new fish.<br>
-							For that, we search through literatures for the same study in other closely related organisms
-							to get the reference data.
+							Once the genome is validated, we can study species-specific characteristic. Here, we ask whether
+							our new fish can synthesize DHA, using published data from related species as a reference.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -358,7 +356,7 @@
 						<p style="font-size:12px; text-align:right"><em>Tran & Ebersberger (2025),
 							<a href="https://doi.org/10.48550/arXiv.2504.19710" target="_blank">https://doi.org/10.48550/arXiv.2504.19710</a></em><br>
 						<aside class="notes">
-							The phylogenetic profiles generated from fDOG is not simply binary. They also contain additional information
+							The phylogenetic profiles generated from fDOG is not only binary. They also contain additional information
 							between the orthologs besides their presence / absence patterns.<br>
 							Visualizing and exploring these more complex profiles in an Excel table is often not practical.
 							Therefore we have developed the PhyloProfile tool to work with these rich phylogenetic profiles.
@@ -382,7 +380,7 @@
 							With PhyloProfile, we can perform downstream analyses of phylogenetic profiles, such as:
 							(1) Estimating the evolutionary age of genes using the last common ancestor algorithm
 							(2) Identifying the core gene set for phylogenetic tree reconstruction
-							(3) Visualizing the distribution of additional information, like domain similarity
+							(3) Visualizing the distribution of additional information
 							(4) Clustering profiles for functional association studies (phylogenetic profiling)
 							(5) Or dynamically filtering data for further analysis<br>
 							More importantly, PhyloProfile allows us to scale comparative studies from analyzing
@@ -400,10 +398,10 @@
 						<img src="images/063_domain_comparison.png" style='float: top; border:0; box-shadow: none' height=400/>
 						<p>Protein feature architecture comparison</p>
 						<aside class="notes">
-							You’ve heard about protein architecture similarity several times. Simply put, proteins are
-							made of features or domains—for example, conserved domains from PFAM or SMART, low-complexity regions,
-							or transmembrane domains.<br>
-							By comparing these features between proteins, we can learn about the functional conservation or 
+							You’ve heard about this term (domain architecture) several times. To remind you, they are
+							functional and structural subsequences that we can assign to our protein sequencing, 
+							for example, functional conserved domains from PFAM or SMART, low-complexity regions, or transmembrane domains.<br>
+							By comparing these feature architectures between proteins, we can learn about the functional conservation or 
 							diversitification of those proteins. Differences in the domain architectures can also point to
 							technical issues in gene prediction, as we have seen in the example of fCAT.<br>
 							<br>MFS_1: Major facilitator superfamily; transmembrane transporters; target a wide spectrum of substrates, 
@@ -459,6 +457,7 @@
 					  </div>
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 1, Moretti et al. (2017),
 							<a href="https://doi.org/10.1038/s41598-017-16947-5" target="_blank">https://doi.org/10.1038/s41598-017-16947-5</a></em><br>
+						<p style="font-size:22px"><strong>=> RhoGDI/PDI microsynteny is highly conserved across nearly all tetrapods</strong></p>
 						<aside class="notes">
 							Now I will show you some applications of those tools from our publications<br>
 							In this paper, we analyzed the evolution of the gene cluster containing protein disulfide isomerase (PDI)
@@ -480,13 +479,14 @@
 					  </div>
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 8, Birikmen et al. (2021),
 							<a href="https://doi.org/10.3389/fmicb.2021.739000" target="_blank">https://doi.org/10.3389/fmicb.2021.739000</a></em><br>
+						<p style="font-size:22px"><strong>=> Lineage-specific losses and reduced complexity of RBFs in the Archaea clade</strong></p>
 						<aside class="notes">
 							In this study, we investigated the evolutionary history of more than 300 ribosome biogenesis factors (RBFs).
 							We used fDOG to generate phylogenetic profiles for these genes across approximately 1,000 taxa,
 							covering all three domains of life. We then applied PhyloProfile to estimate the evolutionary age of the RBF genes
 							and to analyze their protein feature architectures.<br>
 							We observed lineage-specific losses of RBFs in the Archaea clade, as well as evidence for functional diversification.<br>
-							In this figure, we show a simplified comparison of large ribosomal subunit (60S) maturation in Archaea
+							In this figure, we show a comparison of a simplified version of large ribosomal subunit (60S) maturation in Archaea
 							versus eukaryotes, highlighting the reduced complexity in Archaea.
 						</aside>
 					</section>
@@ -502,12 +502,20 @@
 					  </div>
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 4, Tran et al. (2025),
 							<a href="https://doi.org/10.1093/molbev/msaf120" target="_blank">https://doi.org/10.1093/molbev/msaf120</a></em><br>
+						<div style="font-size: 22px; line-height: 1.5;">
+							<strong>=> pPCD enzymes significantly enriched in:</strong><br>
+							<ul>
+								<li>Little tuna (<em>Euthynnus affinis</em>)</li>
+								<li>Black fungus gnat (<em>Bradysia coprophila</em>)</li>
+								<li>Springtail (<em>Folsomia candida</em>)</li>
+							</ul>
+						</div>
 						<aside class="notes">
 							This is our most recent paper on fDOG, where we applied it to study the distribution of 235 plant 
 							cell wall–degrading (pPCD) enzymes across approximately 18,000 species spanning the tree of life.
 							Traditionally, it was believed that only certain bacteria and fungi are capable of producing
 							the enzymes required to break down plant cell walls.
-							Here, we found that three animal species have significantly expanded their repertoire of
+							Here, we found that three animal species have significantly expanded their set of
 							plant cell wall–degrading enzymes: little tuna - Euthynnus affinis- fish; 
 							black fungus gnat - Bradysia coprophila - black flies; springtail - Folsomia candida - insect<br>
 							In this paper, we also demonstrated a new functionality of PhyloProfile. Specifically, we applied
@@ -546,9 +554,9 @@
 					<section>
 						<img src="images/121_thanks.jpeg" style='float: top; border:0; box-shadow: none' height="250"/>
 						<br>
-						<p style="font-size:15px; text-align:center"><em>Presentation link</em><br>
+						<p style="font-size:18px; text-align:center"><em>Presentation link</em><br>
 						<a href="https://trvinh.github.io/bionf_universe_me/slides/#/" target="_blank">https://trvinh.github.io/bionf_universe_me/slides/#/</a></p>
-						<img src="images/122_qrcode.png" style='float: top; border:0; box-shadow: none' height="100"/>
+						<img src="images/122_qrcode.png" style='float: top; border:0; box-shadow: none' height="200"/>
 					</section>
 				</section>
 
