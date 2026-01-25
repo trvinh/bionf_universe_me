@@ -29,7 +29,7 @@
 				<section data-background-image="images/00_logo.png" data-background-position="50% 90%" data-background-size="15%">
 					<h2>THE BIONF UNIVERSE</h2>
 					<hr>
-					<h4>22.01.2026</h4>
+					<h4>26.01.2026</h4>
 					<h4>Vinh Tran</h4>
 				</section>
 
@@ -39,11 +39,35 @@
 					<section data-transition="none">
 						<img src="images/00_aboutme.jpg" style='float: top; border:0; box-shadow: none' height=590/>
 						<aside class="notes">
-							1) blabalbla<br><br>
-							2) blablabla<br><br>
-							3) Dynamic evolution (gene set reduction or expansion)<br><br>
-							4) After my PhD, I stayed in the group and was involved in several projects<br>
-							developing algorithm and tools for comparative genomics analyses
+							1) I completed my bachelor’s degree in Biotechnology at the University of Science. The topic of 
+							my thesis was the prediction of B-cell epitopes of the H5N1 virus using 3D homology modeling. 
+							In this project, we collected matrix proteins of the virus, which are structural proteins involved
+							in the formation of the viral envelope, and reconstructed their 3D structures based on homologous
+							protein structures available in the Protein Data Bank (PDB). After that, we applied epitope prediction
+							tools to identify potential binding sites on the surface of the reconstructed 3D structures that could
+							interact with antibodies produced by B cells.<br><br>
+							2) In 2009, I moved to Germany and enrolled in the Master’s program in Bioinformatics and Genome Research
+							at Bielefeld University. For my Master’s thesis, I used comparative genomics to compare the genome of
+							Actinoplanes sp. strain SE50/110 with six related species. The aim was to improve the genome annotation of
+							this newly sequenced strain and to reconstruct its metabolic network, with a particular focus on the acarbose
+							biosynthesis pathway. Actinoplanes sp. SE50/110 is known for its ability to produce acarbose, which is used
+							in the treatment of type 2 diabetes. (Supervisor: Prof. Alfred Pühler; Advisors: Dr. Alexander Goesmann and Dr. Jörn Kalinowski)<br><br>
+							3) After completing my Master’s degree, I moved to Frankfurt to pursue a PhD in the Applied Bioinformatics group of 
+							Prof. Ebersberger. My research focused on the dynamic evolution of Microsporidia, including gene set reduction 
+							and expansion, as well as the origin of their parasitic lifestyle. Microsporidia are a group of obligate 
+							intracellular parasites. Their evolutionary relationship to fungi was debated for a long time. They are known 
+							pathogens of both humans and animals, causing problems in agriculture as well as medical issues in humans.
+							Microsporidia are particularly interesting because of their highly reduced genomes. Most species have 
+							genome sizes comparable to those of bacteria—for example, Encephalitozoon intestinalis has the smallest 
+							known eukaryotic genome at approximately 2.3 Mb, which is about half the size of the E. coli genome (~5 Mb).
+							Their genomes typically contain only 2,000–4,000 genes, lack many metabolic pathways, and are unable to
+							synthesize nucleotides. Using comparative genomics, we (1) placed Microsporidia as the sister group of fungi, 
+							(2) reconstructed the gene set of the last common ancestor of Microsporidia, and 
+							(3) analyzed their metabolic pathways using the KEGG database by comparing ancestral pathways with 
+							those of extant species.<br><br>
+							4) After my PhD, I remained in the group and became involved in several projects focused on 
+							developing algorithms and tools for comparative genomics analyses, which I will introduce 
+							in this presentation.
 						</aside>
 					</section>
 				</section>
@@ -61,24 +85,27 @@
 					</section>
 					<section data-transition="none">
 						<p>Homologs = Orthologs ∪ Paralogs</p>
-						<img src="images/012_homology.png" style='float: top; border:0; box-shadow: none' height=300/>
+						<img src="images/012_homology2.jpg" style='float: top; border:0; box-shadow: none' height=400/>
+						<p style="font-size:12px; text-align:right"><em>https://bioinformaticshome.com/bioinformatics_tutorials/sequence_alignment/homology.html</em></p>
 						<aside class="notes">
+							One of the most fundamental and important concepts in comparative genomics is HOMOLOGY.<br>
 							Homologous genes = genes that share a common ancestor<br>
 							Orthologs arise from a common ancester gene after a speciation event,
 							leading to similar genes (hence potentially conserved function)<br>
 							While, the result of a duplication event are paralogs that can evolve
-							new functions
+							new functions.
 						</aside>
 					</section>
 					<section data-transition="none">
 						<img src="images/011_terms.png" style='float: top; border:0; box-shadow: none' height=500/>
 						<aside class="notes">
-							These are some other keywords, for which I will explain during my presentation
-						</aside>
+							These are some additional keywords that I will explain later in the presentation.
+							Just one quick note: during my talk, I will use the term “gene” to mean “protein”.
+							So, when I say gene, I am referring only to protein-coding genes.
 					</section>
 				</section>
 
-				<!-- SLIDE 2 orthology -->
+				<!-- SLIDE 2 Question -->
 				<section>
 					<h5 style="color: white; background-color: #559951"><strong>QUESTION</strong></h5>
 					<section data-transition="none">
@@ -103,11 +130,11 @@
 						<img src="images/031_sequencing.gif" style='float: top; border:0; box-shadow: none' height=400/>
 						<aside class="notes">
 							The next step we should do is to take a sample of the organism and do the sequencing.
-							Why:
+							Why:<br>
 							- With the current technique, it is the cheapest (maximal info per dolar) and quickest way to have
 							an overview of the novelty of the organism such as: identify gene gain/loss,
-							gene family expansion, unique or fast-evolving genes, compare regulatory regions,
-							infer metabolic pathways, so on and so forth<br>
+							gene family expansion, unique or fast-evolving genes, regulatory regions, metabolic pathways from the
+							gene set, so on and so forth<br>
 							- And therefore we can better formulate our hypothesis for the downstream analyses
 						</aside>
 					</section>
@@ -115,7 +142,7 @@
 						<br>
 						<img src="images/032_assembly.jpg" style='float: top; border:0; box-shadow: none' height=600/>
 						<aside class="notes">
-							This is a standard pipeline of any sequencing project.<br>
+							This is a standard pipeline of any sequencing project (actually whole genome sequecing).<br>
 							First, we cut the original genome into pieces to put into the sequencing machine and get out milions of sequence reads<br>
 							Then, we assemble those reads into larger fragments called contigs and scaffolds<br>
 							If we are lucky, we can reconstruct the whole chromosome or original genome<br>
@@ -141,7 +168,10 @@
 						<aside class="notes">
 							Therefore, the first step before doing any further studies is to check for the quality of our assembly and gene annotation<br>
 							There are some basic metrics for evaluating the quality of an assembly, such as N50 length, the genome coverage, BUSCO completeness, etc.<br>
-							And from this step come our BIONF tools into the game
+							And from this step come our BIONF tools into the game.
+							(N50: minimum contig length required to cover 50 percent of the assembled genome sequence => Assembly Contiguity<br>
+							Assembled genome coverage of 90%: assembly contains sequences representing approximately 90% of the organism’s total genome size
+							=> assess the completeness of the draft genome)
 						</aside>
 					</section>
 					<section data-visibility="hidden">
@@ -154,10 +184,12 @@
 						</p>
 						<img src="images/043_taxaminer.jpg" style='float: top; border:0; box-shadow: none' height=150/>
 						<aside class="notes">
-							One of the question one can ask after having the assembly is that, is it clean of contamination or HGT?<br>
-							Because contaimination can lead to a wrong intepretation. Such as:<br>
-							Having chicken gene in the fish assembly doesn't automatically mean that our fish has something to do with chicken<br>
-							It could just be a side effect of someone eating KFC while doing the sequencing...<br>
+							Once we have a genome assembly, one important question is whether it is clean. Some sequences may come from
+							contamination—DNA from other organisms that accidentally got into the sample—while others may result from
+							horizontal gene transfer, meaning genes that truly became part of the genome. Both types of these foreign sequences
+							can confuse our interpretation.
+							For example, finding a chicken gene in a fish genome does not mean fish are related to chickens; it could simply
+							be contamination because the TA was eating chicken while doing the sequencing...<br>
 							To find out such contamination genes, one of my colleague, Freya, has developed a tool called taXaminer<br><br>
 						</aside>
 					</section>
@@ -167,13 +199,17 @@
 						<p style="font-size:12px; text-align:right"><em>Freya Arthen (2022), Master thesis</em></p>
 						<p><a href="https://github.com/BIONF/taXaminer" target="_blank">https://github.com/BIONF/taXaminer</a></p>
 						<aside class="notes">
-							taXaminer will have the assembly data as the main input and take into account many characters to cluster the similar genes together,
-							such as the read coverage, the GC content, the gene length, the gene position on the contigs, etc.<br>
+							taXaminer will have the assembly data as the main input and take into account 16 different characters of the 
+							assembly and the gene set to cluster the similar genes together such as the read coverage, the GC content, 
+							the gene length, the gene position on the contigs, etc.<br>
 							It uses the Principal component analysis (PCA) to reduce the dimention of those characters into 2 or 3 dimentions
 							in order to be easy to show and intepret with 2D or 3D plot<br><br>
-							For example here in this small cloud, we see many Ascomycota hits.
-							They are all belong to short scaffolds and have low read coverage in compare to the others.
-							Therefore, one could consider them as candidates for contamination.
+							The tool combines this clustering and the taxonomic assignment of the gene set to distinguish between HGT and contamination.
+							The main cloud contains sequences from our species. While the points outside normally belong to short contigs and
+							have low read coverage. If those sequences are assigned to other species than our target species, they are 
+							candidates for contaminations. While the foreign sequences that are clustered in the main cloud could be because of
+							HGT events because they integrated into the genome and have therefore the same characteristics of other genes of
+							our species.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -184,8 +220,14 @@
 						</p>
 						<img src="images/046_fcat_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
 						<aside class="notes">
-							Another question we can ask: Is my gene set complete? This can be answered with the most well-known tool BUSCO.
-							But, we want to know more, which is how complete, or how fragmented is my gene set?<br>
+							Another question we can ask is: Is my predicted gene set complete? To answer this, we first check whether
+							the number of predicted genes is roughly what we expect. For example: Fungal species usually have 8,000–12,000 genes;
+							typical vertebrates have 20,000–25,000 genes; duplicated fish lineages, like salmonids, can have 40,000–50,000 genes<br>
+							Next, we also want to see if the core genes—the essential genes found in all members of a 
+							taxonomic group—are present in our gene set. A commonly used tool for this is BUSCO. BUSCO can tell us:
+							How many core genes are present (completeness), Whether they are complete or only partially predicted 
+							(fragmentation). But gene set assessment is not just about quantity. We also care about 
+							quality — how accurate and reliable our predicted genes are.<br>
 							To adress this question, we have developed fCAT
 						</aside>
 					</section>
@@ -196,24 +238,29 @@
 							<a href="https://doi.org/10.7490/f1000research.1119126.1" target="_blank">https://doi.org/10.7490/f1000research.1119126.1</a></em></p>
 						<p><a href="https://github.com/BIONF/fCAT" target="_blank">https://github.com/BIONF/fCAT</a></p>
 						<aside class="notes">
-							The starting point of fCAT is the core set for each taxonomic clade
-							(eukaryota, metazoa, sarcopterygii, actinopterygii, lecanoromyces, alveolata).
-							fCAT core sets are currently created by using OMA ortholog groups,
-							but they can be replaced by any other ortholog groups like from OrthoMCL, OrthoDB, HieranoiDB,...<br>
-							fCAT will search ortholog for these core groups in the species of interest using a targeted search algorithm,<br>
-							then classify the founded orthologs as complete or fragmented based on the sequence length,
-							or as similar or dissimilar based on the protein domain architectures
+							First, we choose the taxonomic clade we are interested in and select representative species. Based on these,
+							fCAT identifies core genes, which are orthologs shared by all or most species in the clade.<br>
+							Next, fCAT searches for these orthologs in the species of interest using fDOG. It then evaluates
+							the predicted genes in two ways: by sequence length, to determine whether they are complete or fragmented,
+							and by protein domain architecture, to assess whether they are structurally and functionally similar.<br>
+							The length-based evaluation is similar to BUSCO, while the domain-based analysis is the key novel feature of fCAT.
 						</aside>
 					</section>
 					<section data-transition="none">
 						<br>
 						<img src="images/048_fcat_example.png" style='float: top; border:0; box-shadow: none' height=600/>
 						<aside class="notes">
-							Different than BUSCO, which can only assign a gene as complete or fragmented, fCAT delivers more information<br>
-							Such as in this example, we found an "fragmented" ortholog in the species of interest, the Trachinus draco species.
-							It lacks the BTB and BACK domains in the N-terminus im comparison to the orthologs of other species.
-							By looking at the assembly, we found a direct upstream gene, which has exactly these 2 missing domains.
-							So, this could be a fission event that happened in Trachinus draco which split the original gene into 2 parts.
+							By comparing protein domain architectures, we can gain deeper insight into the quality of a genome annotation.
+							Here, I show two examples from the gene set of this fish.<br>
+							In the example on the left, we identified an ortholog that was classified as fragmented. When we compared it
+							to orthologs from other species, we observed that it lacks the BTB and BACK domains at the N-terminus.
+							By inspecting the genome assembly, we found a gene located directly upstream that contains exactly these
+							two missing domains. This suggests a gene fission event in Trachinus draco, where the original gene was
+							split into two separate parts.<br>
+							In the second example, we identified an ortholog that was classified as complete based on sequence length.
+							However, the domain-based analysis classified it as dissimilar. This was due to two small sequence insertions
+							in the assembly that disrupted the protein domains and could potentially affect or even destroy the
+							protein’s function.
 						</aside>
 					</section>
 				</section>
@@ -226,9 +273,10 @@
 						<img src="images/051_paper.png" style='float: left; border:0; box-shadow: none' height=200/>
 						<img src="images/052_paper.png" style='float: right; border:0; box-shadow: none' height=200/>
 						<aside class="notes">
-							After validating the genome assembly and annotation, we address our original question<br>
-							by examining a key functional trait: the ability to synthesize DHA.<br>
-							For that, we search through literatures for the same study in other organisms to get the reference data
+							After validating the genome assembly and annotation, we can study about the characteristics
+							of our species. In this example, we check for the ability to synthesize DHA of our new fish.<br>
+							For that, we search through literatures for the same study in other closely related organisms
+							to get the reference data.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -238,9 +286,13 @@
 						<img src="images/053b_fdog_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/053_fdog_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
 						<aside class="notes">
-							Here, the main enzymes that involved in the DHA biosynthesis pathway are the FADs and ELOVL proteins.<br>
-							The straighforward approach here is searching for these genes in our species.
-							For that, we use the targeted ortholog search tool fDOG.<br>
+							Here, the main enzymes involved in the DHA biosynthesis pathway are the FAD and ELOVL proteins.
+							Our next step is to search for these genes — or, more precisely, their orthologs — in the 
+							species of interest.<br>
+							Most existing ortholog search tools rely on an all-versus-all approach, meaning they compare
+							entire gene sets across species to identify orthologs. This strategy is very time-consuming,
+							especially when we are only interested in a small subset of genes.<br>
+							To address this, we developed a targeted ortholog search approach called fDOG.<br>
 							<br>FAD: Flavin adenine dinucleotide => enzyme for fatty acid desaturation (remove 2 Hydrogen atoms to create carbon/carbon double bond)
 							<br>ELOVL: Elongase of very long-chain fatty acid
 						</aside>
@@ -252,14 +304,18 @@
 							<a href="https://doi.org/10.1093/molbev/msaf120" target="_blank">https://doi.org/10.1093/molbev/msaf120</></em></p>
 						<p><a href="https://github.com/BIONF/fDOG" target="_blank">https://github.com/BIONF/fDOG</a></p>
 						<aside class="notes">
-							Starting with a seed protein (the FAD or ELOVL from the previous slide),
-							fDOG iteratively search for orthologs in a set of so-called core taxa. After each round,
-							new ortholog will be added to the core ortholog group to create a profile HMM for the core group.
-							When the core group reach to a pre-defined number of orthologs, this core compilation step will stop and the final pHMM will be created.<br>
-							Then, fDOG use this pHMM to search for similar sequences in the species of interest.
-							The candidate HMM hits will then be checked, if it passes the reciprocal criterium, it will be considered as an ortholog
-							and will be added to the final ortholog group.<br>
-							Finally, fDOG create a phylogenetic profiles for the seed protein with the founded orthologs in different taxa
+							Starting with a seed protein — for example, an FAD or ELOVL from the previous slide — fDOG
+							iteratively searches for orthologs in a set of so-called core taxa. After each iteration,
+							newly identified orthologs are added to the core ortholog group, which is then used to build
+							a profile HMM for the core group. A profile HMM is a statistical summary derived from a multiple
+							sequence alignment that represents a protein family and allows sensitive detection of homologous sequences.<br>
+							This core compilation step continues until a predefined number of orthologs is reached.
+							At that point, the iteration stops and the final profile HMM is constructed.<br>
+							Next, fDOG uses this profile HMM to search for similar sequences in the species of interest.
+							Candidate hits are then evaluated using a reciprocal criterion. Sequences that pass this test
+							are accepted as orthologs.<br>
+							Finally, fDOG generates an output to show the presence or absence of all orthologs across different taxa.
+							This is called the phylogenetic profile of the seed protein.
 						</aside>
 					</section>
 				</section>
@@ -273,11 +329,10 @@
 						<img src="images/060_pp_simple.png" style='float: top; border:0; box-shadow: none' height=300/>
 						<p style="font-size:30px">Presence of orthologs ⇒ likely presence of the function</p>
 						<aside class="notes">
-							The main purpose of the phylogenetic profiles from fDOG is not different than showing the presence/absence pattern of the seed proteins in a list of diverse species<br>
-							The only different from the original phylogenetic profiles is,
-							that the one from fDOG is not binary but it contains also other measures,
-							namely the domain architecture similarity between the seed and the orthologs.<br>
-							To visualize and explore such complex phylogenetic profiles, an excel table is not always useful
+							A phylogenetic profile of a gene, as I mentioned earlier, is originally defined as
+							the presence or absence of that gene across a set of species.<br>
+							The presence of an ortholog in a species usually indicates that the function of
+							the gene is also present in that organism.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -286,11 +341,10 @@
 						<img src="images/060b_pp_simple2.png" style='float: top; border:0; box-shadow: none' height=300/>
 						<p style="font-size:30px">Similar profiles ⇒ functional association</p>
 						<aside class="notes">
-							The main purpose of the phylogenetic profiles from fDOG is not different than showing the presence/absence pattern of the seed proteins in a list of diverse species<br>
-							The only different from the original phylogenetic profiles is,
-							that the one from fDOG is not binary but it contains also other measures,
-							namely the domain architecture similarity between the seed and the orthologs.<br>
-							To visualize and explore such complex phylogenetic profiles, an excel table is not always useful
+							We can also compare the phylogenetic profiles of different genes.
+							If two genes have similar profiles, meaning they are present and absent in the same species,
+							they are likely to work together or be functionally related.<br>
+							This approach is called phylogenetic profiling.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -304,8 +358,10 @@
 						<p style="font-size:12px; text-align:right"><em>Tran & Ebersberger (2025),
 							<a href="https://doi.org/10.48550/arXiv.2504.19710" target="_blank">https://doi.org/10.48550/arXiv.2504.19710</a></em><br>
 						<aside class="notes">
-							....<br>
-							Therefore we have developed this PhyloProfile tool
+							The phylogenetic profiles generated from fDOG is not simply binary. They also contain additional information
+							between the orthologs besides their presence / absence patterns.<br>
+							Visualizing and exploring these more complex profiles in an Excel table is often not practical.
+							Therefore we have developed the PhyloProfile tool to work with these rich phylogenetic profiles.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -313,13 +369,25 @@
 						<img src="images/062_phyloprofile_features.png" style='float: top; border:0; box-shadow: none' height=500/>
 						<p><a href="https://github.com/BIONF/PhyloProfile" target="_blank">https://github.com/BIONF/PhyloProfile</a></p>
 						<aside class="notes">
-							I think some of you have already known about PhyloProfile.<br>
-							It has an interactive phylogenetic profile plot,
-							in which each dot in the plot show the presence of the ortholog for the corresponding taxon,
-							and the color of the dot or the color of the background represent the value of the protein architecture similarity<br>
-							With PhyloProfile we can not only viewing the comparison of the protein architectures,
-							but we can also perform some downstream analysis, such as estimate the gene age based on the
-							last common ancestor approach; or identify group of core genes that can be used fo a species tree reconstruction
+							PhyloProfile is an interactive R-Shiny app for visualizing phylogenetic profiles of thousands
+							of genes across thousands of species.<br>
+							Here you see the main window with the profile plot. The x-axis represents the taxa, and
+							the y-axis represents the genes. Each dot indicates the presence of an ortholog for the
+							corresponding taxon. The color of the dot or the background represents additional information;
+							in this example, it shows protein domain architecture similarity, which you already have heard about
+							from the last slide.<br>
+							The tool uses the NCBI taxonomy database to order taxa according to their taxonomic distance
+							from the species of interest. The plot can be dynamically adjusted to display profiles at
+							different taxonomic levels, from strain and species up to kingdom or superkingdom.<br>
+							With PhyloProfile, we can perform downstream analyses of phylogenetic profiles, such as:
+							(1) Estimating the evolutionary age of genes using the last common ancestor algorithm
+							(2) Identifying the core gene set for phylogenetic tree reconstruction
+							(3) Visualizing the distribution of additional information, like domain similarity
+							(4) Clustering profiles for functional association studies (phylogenetic profiling)
+							(5) Or dynamically filtering data for further analysis<br>
+							More importantly, PhyloProfile allows us to scale comparative studies from analyzing
+							entire gene sets across thousands of taxa down to pairwise comparisons between two orthologs,
+							helping to investigate differences in their domain architecture.
 						</aside>
 					</section>
 				</section>
@@ -332,17 +400,21 @@
 						<img src="images/063_domain_comparison.png" style='float: top; border:0; box-shadow: none' height=400/>
 						<p>Protein feature architecture comparison</p>
 						<aside class="notes">
-							The most relevant feature is the comparison of the protein domain architecture.<br>
-							With this, we can easily find genes that have changes in their architectures, which suggest also for
-							functional changes. Or, we can figure out, if the difference in the domain architecture is just
-							a technical artifact due to wrong gene prediction.<br>
-							For example here is the domain plot of a human protein agains 2 orthologous proteins from 2 different Chimpanzee gene sets.
-							We see the ortholog in the QfO gene set is much shorter than the one in the NCBI Refseq gene set.
-							It is missing the whole path in the N-terminus. So, our hypothesis is a wrong gene prediction happened in the QfO dataset.<br>
-							<em>(The possibility for a gene fission event here is rather low. Because, human and chimp are very close relative.
-							If the fission event happened in Chimp, we should also see that in human.
-							And if it is the case, then we had 2 independent wrong gene prediction in human gene set and in the chimpanzee refseq gene sets.
-							Which is quite hard to believe)</em>
+							You’ve heard about protein architecture similarity several times. Simply put, proteins are
+							made of features or domains—for example, conserved domains from PFAM or SMART, low-complexity regions,
+							or transmembrane domains.<br>
+							By comparing these features between proteins, we can learn about the functional conservation or 
+							diversitification of those proteins. Differences in the domain architectures can also point to
+							technical issues in gene prediction, as we have seen in the example of fCAT.<br>
+							<br>MFS_1: Major facilitator superfamily; transmembrane transporters; target a wide spectrum of substrates, 
+							including ions, carbohydrates, lipids, amino acids and peptides, nucleosides and other small molecules
+							<br>MFS_2: Sugar transport protein
+							<br>Alpha_L_AF_C: Alpha-L-arabinofuranosidase C-terminus; catalyses the hydrolysis of alpha-L-arabinofuranosidic 
+							linkages in L-arabinose-containing polysaccharides
+							<br>TMHMM: a section of a protein that contains a single helix and is highly hydrophobic, allowing
+							it to anchor the protein within the cell membrane
+							<br>SEG: regions in protein sequences that differ from the composition and complexity of most proteins;
+							normally associated with globular structure
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -351,9 +423,9 @@
 						<img src="images/072b_FAS_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/072_julian.jpg" style='float: top; border:0; box-shadow: none' height=180/>
 						<aside class="notes">
-							To sytematically compare the protein architectures by not just looking at the domain plot,
-							we have come up with a new metric called the FAS score<br>
-							Currently, the FAS scores are calculated using the greedyFAS tool, developed by Julian
+							To systematically compare protein architectures—rather than just looking at domain plots,
+							we developed a metric called the FAS score. The FAS scores are calculated using the
+							greedyFAS tool, which was developed by Julian.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -363,11 +435,11 @@
 							<a href="https://doi.org/10.1093/bioinformatics/btad226" target="_blank">https://doi.org/10.1093/bioinformatics/btad226</a></em><br>
 						<p><a href="https://github.com/BIONF/FAS" target="_blank">https://github.com/BIONF/FAS</a></p>
 						<aside class="notes">
-							FAS score has a value between 1 and 0; 1: completely similar; 0: completely different or no annotated domain found.<br>
-							Given 2 proteins, greedyFAS will annotate them with different features such as PFAM/SMART domains, transmembrane domains, low complexity regions,...
-							Then, the tool compares the 2 annotated architectures and penalize the missing features, depending on which protein is considered as the reference protein.<br>
-							For example here, if we take A as the reference and compare with B, the Pleckstrin domain is missing, therefore the FAS score in this direction is only 0.6<br>
-							But, in the reverse direction, all the domains of B can be found in A, which will lead to a maximum FAS score of 1.
+							The FAS score measures how similar two protein architectures are, ranging from 0 (completely different) 
+							to 1 (identical). FAS tool compares the annotated features and penalizes missing features 
+							based on which protein is the reference.<br>
+							For example, if A is the reference, missing domains in B lower the score, while in the 
+							reverse comparison the score can be higher because all B’s domains are found in A.
 						</aside>
 					</section>
 				</section>
@@ -388,7 +460,12 @@
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 1, Moretti et al. (2017),
 							<a href="https://doi.org/10.1038/s41598-017-16947-5" target="_blank">https://doi.org/10.1038/s41598-017-16947-5</a></em><br>
 						<aside class="notes">
-							...
+							Now I will show you some applications of those tools from our publications<br>
+							In this paper, we analyzed the evolution of the gene cluster containing protein disulfide isomerase (PDI)
+							and Rho guanine-dissociation inhibitor (RhoGDI). Among other analyses, we used fDOG to search for
+							orthologs of this cluster in over 200 species across the entire tree of life. We then reconstructed
+							the species phylogeny to estimate the evolutionary origin of the cluster and to examine its conservation.<br>
+							We found that this gene synteny is highly conserved across nearly all tetrapods (animals with four limbs)
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -404,7 +481,13 @@
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 8, Birikmen et al. (2021),
 							<a href="https://doi.org/10.3389/fmicb.2021.739000" target="_blank">https://doi.org/10.3389/fmicb.2021.739000</a></em><br>
 						<aside class="notes">
-							...
+							In this study, we investigated the evolutionary history of more than 300 ribosome biogenesis factors (RBFs).
+							We used fDOG to generate phylogenetic profiles for these genes across approximately 1,000 taxa,
+							covering all three domains of life. We then applied PhyloProfile to estimate the evolutionary age of the RBF genes
+							and to analyze their protein feature architectures.<br>
+							We observed lineage-specific losses of RBFs in the Archaea clade, as well as evidence for functional diversification.<br>
+							In this figure, we show a simplified comparison of large ribosomal subunit (60S) maturation in Archaea
+							versus eukaryotes, highlighting the reduced complexity in Archaea.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -420,7 +503,20 @@
 						<p style="font-size:12px; text-align:right"><em>Reproduced from Figure 4, Tran et al. (2025),
 							<a href="https://doi.org/10.1093/molbev/msaf120" target="_blank">https://doi.org/10.1093/molbev/msaf120</a></em><br>
 						<aside class="notes">
-							...
+							This is our most recent paper on fDOG, where we applied it to study the distribution of 235 plant 
+							cell wall–degrading (pPCD) enzymes across approximately 18,000 species spanning the tree of life.
+							Traditionally, it was believed that only certain bacteria and fungi are capable of producing
+							the enzymes required to break down plant cell walls.
+							Here, we found that three animal species have significantly expanded their repertoire of
+							plant cell wall–degrading enzymes: little tuna - Euthynnus affinis- fish; 
+							black fungus gnat - Bradysia coprophila - black flies; springtail - Folsomia candida - insect<br>
+							In this paper, we also demonstrated a new functionality of PhyloProfile. Specifically, we applied
+							dimensionality reduction techniques to cluster taxa based on their enzyme profiles, allowing us to
+							identify which taxa are enriched in plant cell wall–degrading enzymes.
+							(Figure: pPCDs distribution across the eukaryotes. (A) UMAP clustering, each species is 1 dot, dot size represent
+							the number of pPCDs found; (B) Zoom in to fungal cluster 1 and invertebrate cluster 2; (C) Phylogenetic profiles
+							of the 4 arthropods. Using taxaminer, we found evidence of contamination for the pPCDs in the the cotton leaf worm 
+							Spodoptera litura)
 						</aside>
 					</section>
 				</section>
@@ -436,10 +532,10 @@
 							The grey arrows shows the input and output flow between the tools;
 							the blue arrows shows the integration of one tool in the others.<br>
 							Most of the tools are written in Python and are available as python packages.<br>
-							For the graphical user interface tools, we have different approaches,
-							from JavaScript for MATT or R-Shiny for PhyloProfile.<br>
-							Beside the ability to install the tools from PyPi or Bioconductor,
-							you can get the source code of those tools on the BIONF github repository
+							Beside those python tools that run only in the command line, we also have tools with the
+							user-interface such as PhyloProfile or MATT (for phylogenetic tree topology testing).<br>
+							These tools are published into PyPi or Bioconductor for easy installation. Their open source code can be
+							found on our BIONF github repository.
 						</aside>
 					</section>
 				</section>
