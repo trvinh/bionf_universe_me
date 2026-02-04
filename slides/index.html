@@ -29,7 +29,7 @@
 				<section data-background-image="images/00_logo.png" data-background-position="50% 90%" data-background-size="15%">
 					<h2>THE BIONF UNIVERSE</h2>
 					<hr>
-					<h4>26.01.2026</h4>
+					<h4>05.02.2026</h4>
 					<h4>Vinh Tran</h4>
 				</section>
 
@@ -39,8 +39,8 @@
 					<section data-transition="none">
 						<img src="images/00_aboutme.jpg" style='float: top; border:0; box-shadow: none' height=590/>
 						<aside class="notes">
-							1) I completed my bachelor’s degree in Biotechnology at the University of Science. The topic of 
-							my thesis was the prediction of B-cell epitopes of the H5N1 virus using 3D homology modeling. 
+							1) I completed my bachelor’s degree in Biotechnology at the University of Science. The topic of
+							my thesis was the prediction of B-cell epitopes of the H5N1 virus using 3D homology modeling.
 							In this project, we collected matrix proteins of the virus, which are structural proteins involved
 							in the formation of the viral envelope, and reconstructed their 3D structures based on homologous
 							protein structures available in the Protein Data Bank (PDB). After that, we applied epitope prediction
@@ -52,21 +52,21 @@
 							this newly sequenced strain and to reconstruct its metabolic network, with a particular focus on the acarbose
 							biosynthesis pathway. Actinoplanes sp. SE50/110 is known for its ability to produce acarbose, which is used
 							in the treatment of type 2 diabetes. (Supervisor: Prof. Alfred Pühler; Advisors: Dr. Alexander Goesmann and Dr. Jörn Kalinowski)<br><br>
-							3) After completing my Master’s degree, I moved to Frankfurt to pursue a PhD in the Applied Bioinformatics group of 
-							Prof. Ebersberger. My research focused on the dynamic evolution of Microsporidia, including gene set reduction 
-							and expansion, as well as the origin of their parasitic lifestyle. Microsporidia are a group of obligate 
-							intracellular parasites. Their evolutionary relationship to fungi was debated for a long time. They are known 
+							3) After completing my Master’s degree, I moved to Frankfurt to pursue a PhD in the Applied Bioinformatics group of
+							Prof. Ebersberger. My research focused on the dynamic evolution of Microsporidia, including gene set reduction
+							and expansion, as well as the origin of their parasitic lifestyle. Microsporidia are a group of obligate
+							intracellular parasites. Their evolutionary relationship to fungi was debated for a long time. They are known
 							pathogens of both humans and animals, causing problems in agriculture as well as medical issues in humans.
-							Microsporidia are particularly interesting because of their highly reduced genomes. Most species have 
-							genome sizes comparable to those of bacteria—for example, Encephalitozoon intestinalis has the smallest 
+							Microsporidia are particularly interesting because of their highly reduced genomes. Most species have
+							genome sizes comparable to those of bacteria—for example, Encephalitozoon intestinalis has the smallest
 							known eukaryotic genome at approximately 2.3 Mb, which is about half the size of the E. coli genome (~5 Mb).
 							Their genomes typically contain only 2,000–4,000 genes, lack many metabolic pathways, and are unable to
-							synthesize nucleotides. Using comparative genomics, we (1) placed Microsporidia as the sister group of fungi, 
-							(2) reconstructed the gene set of the last common ancestor of Microsporidia, and 
-							(3) analyzed their metabolic pathways using the KEGG database by comparing ancestral pathways with 
+							synthesize nucleotides. Using comparative genomics, we (1) placed Microsporidia as the sister group of fungi,
+							(2) reconstructed the gene set of the last common ancestor of Microsporidia, and
+							(3) analyzed their metabolic pathways using the KEGG database by comparing ancestral pathways with
 							those of extant species.<br><br>
-							4) After my PhD, I remained in the group and became involved in several projects focused on 
-							developing algorithms and tools for comparative genomics analyses, which I will introduce 
+							4) After my PhD, I remained in the group and became involved in several projects focused on
+							developing algorithms and tools for comparative genomics analyses, which I will introduce
 							in this presentation.
 						</aside>
 					</section>
@@ -127,7 +127,7 @@
 						<br>
 						<img src="images/031_sequencing.gif" style='float: top; border:0; box-shadow: none' height=400/>
 						<aside class="notes">
-							The next step we should do is to take a sample of the organism and do the sequencing.
+							The first step we normally do is to take a sample of the organism and do the sequencing.
 							Why:<br>
 							- With the current technique, it is the cheapest (maximal info per dolar) and quickest way to have
 							an overview of the novelty of the organism such as: identify gene gain/loss,
@@ -141,7 +141,7 @@
 						<img src="images/032_assembly.jpg" style='float: top; border:0; box-shadow: none' height=600/>
 						<aside class="notes">
 							This is a standard pipeline of any sequencing project (actually whole genome sequecing).<br>
-							First, we cut the original genome into pieces to put into the sequencing machine and get out milions of sequence reads<br>
+							After putting the DNA of our organism into the sequencing machine, we get out a bunch of sequence reads<br>
 							Then, we assemble those reads into larger fragments called contigs and scaffolds<br>
 							If we are lucky, we can reconstruct the whole chromosome or original genome<br>
 							After that, we do the genome annotation to predict genes and gene products from the assembly
@@ -166,48 +166,10 @@
 						<aside class="notes">
 							Therefore, before doing any further studies we need to check for the quality of our assembly and gene annotation<br>
 							There are some basic metrics for evaluating the quality of an assembly, such as N50 length, the genome coverage, BUSCO completeness, etc.<br>
-							And from this step come our BIONF tools into the game.
-							(N50: minimum contig length required to cover 50 percent of the assembled genome sequence => Assembly Contiguity<br>
+							N50: minimum contig length required to cover 50 percent of the assembled genome sequence => Assembly Contiguity<br>
 							Assembled genome coverage of 90%: assembly contains sequences representing approximately 90% of the organism’s total genome size
-							=> assess the completeness of the draft genome)
-						</aside>
-					</section>
-					<section data-visibility="hidden">
-						<br>
-						<img src="images/041_data.jpg" style='float: top; border:0; box-shadow: none' height=200/>
-						<p>
-							Is my genome "clean"?
-							<p style="font-size:30px; text-align:center">Contamination</p>
-							<p style="font-size:30px; text-align:center">Horizontal gene transfer</p>
-						</p>
-						<img src="images/043_taxaminer.jpg" style='float: top; border:0; box-shadow: none' height=150/>
-						<aside class="notes">
-							One of the questions we can ask is whether out assembly is clean. Some sequences may come from
-							contamination—DNA from other organisms that accidentally got into the sample—while others may result from
-							horizontal gene transfer, meaning genes from other organisms that truly became part of the genome. 
-							Both types of these foreign sequences can confuse our interpretation.
-							For example, finding a chicken gene in a fish genome does not mean fish are related to chickens; it could simply
-							be contamination because the TA was eating chicken while doing the sequencing...<br>
-							To find out such contamination genes, one of my colleague, Freya, has developed a tool called taXaminer<br><br>
-						</aside>
-					</section>
-					<section data-transition="none">
-						<br>
-						<img src="images/044_taxaminer_workflow.png" style='float: top; border:0; box-shadow: none' height=300/>
-						<p style="font-size:12px; text-align:right"><em>Freya Arthen (2022), Master thesis</em></p>
-						<p><a href="https://github.com/BIONF/taXaminer" target="_blank">https://github.com/BIONF/taXaminer</a></p>
-						<aside class="notes">
-							taXaminer will have the assembly data as the main input and take into account 16 different characters of the 
-							assembly and the gene set to cluster the similar genes together such as the read coverage, the GC content, 
-							the gene length, the gene position on the contigs, etc.<br>
-							It uses the Principal component analysis (PCA) to reduce the dimention of those characters into 2 or 3 dimentions
-							in order to be easy to show and intepret with 2D or 3D plot<br><br>
-							The tool combines this clustering and the taxonomic assignment of the gene set to distinguish between HGT and contamination.
-							The main cloud contains sequences from our species. While the points outside normally belong to short contigs and
-							have low read coverage. If those sequences are assigned to other species than our target species, they are 
-							candidates for contaminations. While the foreign sequences that are clustered in the main cloud could be because of
-							HGT events because they integrated into the genome and have therefore the same characteristics of other genes of
-							our species.
+							=> assess the completeness of the draft genome
+							BUSCO assess the completeness of our predicted gene set.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -218,14 +180,14 @@
 						</p>
 						<img src="images/046_fcat_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
 						<aside class="notes">
-							Another question we can ask is: Is my predicted gene set complete? To answer this, we first check whether
+							Here I focus more in the question: Is my predicted gene set complete? To answer this, we first check whether
 							the number of predicted genes is roughly what we expect. For example: Fungal species usually have 8,000–12,000 genes;
 							typical vertebrates have 20,000–25,000 genes; duplicated fish lineages, like salmonids, can have 40,000–50,000 genes<br>
-							Next, we also want to see if the core genes—the essential genes found in all members of a 
+							Next, we also want to see if the core genes—the essential genes found in all members of a
 							taxonomic group—are present in our gene set. A commonly used tool for this is BUSCO. BUSCO can tell us:
-							How many core genes are present (completeness), Whether they are complete or only partially predicted 
-							(fragmentation). But gene set assessment is not just about quantity. We also care about 
-							quality — how accurate and reliable our predicted genes are.<br>
+							How many core genes are present (completeness), Whether they are complete or only partially predicted
+							(fragmentation). Here we want to do something more, we also want to access, how accurate and reliable
+							our predicted genes are.<br>
 							To adress this question, we have developed fCAT
 						</aside>
 					</section>
@@ -236,11 +198,13 @@
 							<a href="https://doi.org/10.7490/f1000research.1119126.1" target="_blank">https://doi.org/10.7490/f1000research.1119126.1</a></em></p>
 						<p><a href="https://github.com/BIONF/fCAT" target="_blank">https://github.com/BIONF/fCAT</a></p>
 						<aside class="notes">
-							First, we choose the taxonomic clade we are interested in and select representative species. Based on these,
-							fCAT identifies core genes, which are orthologs shared by all or most species in the clade.<br>
-							Next, fCAT searches for these orthologs in the species of interest using fDOG. It then evaluates
-							the predicted genes in two ways: by sequence length, to determine whether they are complete or fragmented,
-							and by protein domain architecture, to assess whether they are structurally and functionally similar.<br>
+							First, we choose the taxonomic clade we are interested in (e.g. eukaryote, fungi or ascomycota)
+							and select representative species. Based on these, fCAT identifies core genes, which are orthologs
+							shared by all or most species in the clade.<br>
+							Next, fCAT searches orthologs in the species of interest for these core genes using a tool called fDOG.
+							It then evaluates the predicted genes in two ways: by sequence length, to determine whether they are
+							complete or fragmented, and by protein domain architecture, to assess whether they are structurally and
+							functionally similar.<br>
 							The length-based evaluation is similar to BUSCO, while the domain-based analysis is the key novel feature of fCAT.
 							What is the domain or feature architecture of a protein? => functional or structural subsequences that you can
 							annotate along the protein sequence.
@@ -274,7 +238,8 @@
 						<img src="images/052_paper.png" style='float: right; border:0; box-shadow: none' height=200/>
 						<aside class="notes">
 							Once the genome is validated, we can study species-specific characteristic. Here, we ask whether
-							our new fish can synthesize DHA, using published data from related species as a reference.
+							our new fish can synthesize DHA. A simple approach is to search for genes or proteins that are
+							responsible for this pathway, using the knownledge in other related species from other published studies.
 						</aside>
 					</section>
 					<section data-transition="none">
@@ -284,8 +249,8 @@
 						<img src="images/053b_fdog_ms.png" style='float: top; border:0; box-shadow: none' height=150/>
 						<img src="images/053_fdog_logo.png" style='float: top; border:0; box-shadow: none' height=100/>
 						<aside class="notes">
-							Here, the main enzymes involved in the DHA biosynthesis pathway are the FAD and ELOVL proteins.
-							Our next step is to search for these genes — or, more precisely, their orthologs — in the 
+							We found that, the main enzymes involved in the DHA biosynthesis pathway are FAD and ELOVL proteins.
+							Our next step is to search for these genes — or, more precisely, their orthologs — in the
 							species of interest.<br>
 							Most existing ortholog search tools rely on an all-versus-all approach, meaning they compare
 							entire gene sets across species to identify orthologs. This strategy is very time-consuming,
@@ -399,15 +364,15 @@
 						<p>Protein feature architecture comparison</p>
 						<aside class="notes">
 							You’ve heard about this term (domain architecture) several times. To remind you, they are
-							functional and structural subsequences that we can assign to our protein sequencing, 
+							functional and structural subsequences that we can assign to our protein sequencing,
 							for example, functional conserved domains from PFAM or SMART, low-complexity regions, or transmembrane domains.<br>
-							By comparing these feature architectures between proteins, we can learn about the functional conservation or 
+							By comparing these feature architectures between proteins, we can learn about the functional conservation or
 							diversitification of those proteins. Differences in the domain architectures can also point to
 							technical issues in gene prediction, as we have seen in the example of fCAT.<br>
-							<br>MFS_1: Major facilitator superfamily; transmembrane transporters; target a wide spectrum of substrates, 
+							<br>MFS_1: Major facilitator superfamily; transmembrane transporters; target a wide spectrum of substrates,
 							including ions, carbohydrates, lipids, amino acids and peptides, nucleosides and other small molecules
 							<br>MFS_2: Sugar transport protein
-							<br>Alpha_L_AF_C: Alpha-L-arabinofuranosidase C-terminus; catalyses the hydrolysis of alpha-L-arabinofuranosidic 
+							<br>Alpha_L_AF_C: Alpha-L-arabinofuranosidase C-terminus; catalyses the hydrolysis of alpha-L-arabinofuranosidic
 							linkages in L-arabinose-containing polysaccharides
 							<br>TMHMM: a section of a protein that contains a single helix and is highly hydrophobic, allowing
 							it to anchor the protein within the cell membrane
@@ -433,10 +398,10 @@
 							<a href="https://doi.org/10.1093/bioinformatics/btad226" target="_blank">https://doi.org/10.1093/bioinformatics/btad226</a></em><br>
 						<p><a href="https://github.com/BIONF/FAS" target="_blank">https://github.com/BIONF/FAS</a></p>
 						<aside class="notes">
-							The FAS score measures how similar two protein architectures are, ranging from 0 (completely different) 
-							to 1 (identical). FAS tool compares the annotated features and penalizes missing features 
+							The FAS score measures how similar two protein architectures are, ranging from 0 (completely different)
+							to 1 (identical). FAS tool compares the annotated features and penalizes missing features
 							based on which protein is the reference.<br>
-							For example, if A is the reference, missing domains in B lower the score, while in the 
+							For example, if A is the reference, missing domains in B lower the score, while in the
 							reverse comparison the score can be higher because all B’s domains are found in A.
 						</aside>
 					</section>
@@ -511,19 +476,19 @@
 							</ul>
 						</div>
 						<aside class="notes">
-							This is our most recent paper on fDOG, where we applied it to study the distribution of 235 plant 
+							This is our most recent paper on fDOG, where we applied it to study the distribution of 235 plant
 							cell wall–degrading (pPCD) enzymes across approximately 18,000 species spanning the tree of life.
 							Traditionally, it was believed that only certain bacteria and fungi are capable of producing
 							the enzymes required to break down plant cell walls.
 							Here, we found that three animal species have significantly expanded their set of
-							plant cell wall–degrading enzymes: little tuna - Euthynnus affinis- fish; 
+							plant cell wall–degrading enzymes: little tuna - Euthynnus affinis- fish;
 							black fungus gnat - Bradysia coprophila - black flies; springtail - Folsomia candida - insect<br>
 							In this paper, we also demonstrated a new functionality of PhyloProfile. Specifically, we applied
 							dimensionality reduction techniques to cluster taxa based on their enzyme profiles, allowing us to
 							identify which taxa are enriched in plant cell wall–degrading enzymes.
 							(Figure: pPCDs distribution across the eukaryotes. (A) UMAP clustering, each species is 1 dot, dot size represent
 							the number of pPCDs found; (B) Zoom in to fungal cluster 1 and invertebrate cluster 2; (C) Phylogenetic profiles
-							of the 4 arthropods. Using taxaminer, we found evidence of contamination for the pPCDs in the the cotton leaf worm 
+							of the 4 arthropods. Using taxaminer, we found evidence of contamination for the pPCDs in the the cotton leaf worm
 							Spodoptera litura)
 						</aside>
 					</section>
@@ -536,7 +501,7 @@
 						<br>
 						<img src="images/111_summary.jpg" style='float: top; border:0; box-shadow: none' height=620/>
 						<aside class="notes">
-							To summarize, this diagram shows how our tools are related. I’ve highlighted the ones 
+							To summarize, this diagram shows how our tools are related. I’ve highlighted the ones
 							where I was the main developer or key contributor<br>
 							The grey arrows shows the input and output flow between the tools;
 							the blue arrows shows the integration of one tool in the others.<br>
